@@ -1,0 +1,94 @@
+
+Started POST /api/create_publication for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:39:26 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Started POST /api/create_publication for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:49:17 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Started GET /api/find_publication_by_id/3 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:50:59 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Started GET /api/find_publication_by_id/4 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:51:08 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Started POST /api/create_publication for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:52:39 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Started POST /api/create_publication for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:53:23 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Started GET /api/publication_user_by_id/1 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:55:39 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Started GET /api/publication_user_by_id/1 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:55:48 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 50 ms Request ID: [26f1a251-5058-4f1a-9d53-c9551fb2ff9f]
+
+Started GET /api/publication_user_by_id/2 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:55:57 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 7 ms Request ID: [70990d91-2963-4e54-b655-1770da0fba39]
+
+Started GET /api/publication_user_by_id/2 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:55:58 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 3 ms Request ID: [a33f1670-f44f-48a6-bd90-51809e71aabc]
+
+Started GET /api/publication_user_by_id/4 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:56:31 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 112 ms Request ID: [9c22b290-3d62-49c1-a482-27ce37094f93]
+
+Started GET /api/publication_user_by_id/4 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:57:44 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 500 message:  Time response: 17 ms Request ID: [151899ea-3740-4107-af54-3097121cdbe7]
+
+Started GET /api/publication_all for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:58:36 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 404 message:  Time response: 86 ms Request ID: [cfd49988-6c06-4851-a909-7a7bd2518398]
+
+Started GET /api/publication_all for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 11:58:46 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 10 ms Request ID: [74595108-0e5f-4725-b7e5-f7fcf3d3d327]
+
+Started GET /api/publication_all for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 17:35:18 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 102 ms Request ID: [f16e989d-f513-471a-bb06-0f696c72fcfc]
+
+Started POST /api/login for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:01:53 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 520 ms Request ID: [2a60c81d-e2a2-4ccc-986f-fb1deeb7a3ad]
+
+Started POST /api/create_publication for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:02:13 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 500 message:  Time response: 11 ms Request ID: [26d36eb3-6576-4c75-a1fe-85962c4124cb]
+
+Started POST /api/create_publication for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:02:25 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 500 message:  Time response: 7 ms Request ID: [b9f06ddc-feb0-4b04-ada3-6a9ca860443c]
+
+Started GET /api/find_publication_by_id/4 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:02:58 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 129 ms Request ID: [36d9fcc1-4564-46e0-8b26-9e9ddc03d7ea]
+
+Started GET /api/publication_all for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:03:08 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 51 ms Request ID: [ed7edc74-fa96-47bb-b0e0-076c0c4b7626]
+
+Started GET /api/find_order_by_id/7 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:03:29 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 124 ms Request ID: [8f6c335c-2fb6-498b-8ebe-1de109b10af9]
+
+Started GET /api/find_comment_by_id/4 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:03:46 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 163 ms Request ID: [e94f6ca9-7b1b-4660-83a5-734d7d624ab4]
+
+Started GET /api/find_comment_by_id/5 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:03:54 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 11 ms Request ID: [1dcb740a-8059-4102-9844-5e951d680db1]
+
+Started GET /api/find_order_detail_by_id/6 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:04:09 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 63 ms Request ID: [e7728e35-ea52-43ec-a286-6664e97c73aa]
+
+Started GET /api/find_order_detail_by_id/4 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:04:16 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 4 ms Request ID: [9e24c5a9-b400-4ec8-b7ca-b940198ddb1c]
+
+Started GET /api/find_order_detail_by_id/5 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:04:24 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 3 ms Request ID: [f4e3fa0c-7507-4caf-9fb2-f4e379432deb]
+
+Started GET /api/find_user_by_id/4 for :: ::ffff:127.0.0.1 at Wed Feb 05 2025 18:04:34 GMT-0300 (hora de verano de Chile)
+  Parameters in body: [object Object]
+Completed: 200 message:  Time response: 53 ms Request ID: [f1b8d6c5-318e-4fce-9e50-4590bcd27440]

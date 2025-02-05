@@ -1,0 +1,68 @@
+import { pool } from "../../config/bd/conection.db.js";
+import bcrypt from "bcryptjs";
+
+const createUser = async ({
+  email,
+  password,
+  name,
+  lastName,
+  nick_name,
+  image,
+}) => {
+  const hashedPassword = bcrypt.hashSync(password);
+  const SQLquery = {
+    text: "INSERT INTO users (email, password, name, last_name, nick_name, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+    values: [email, hashedPassword, name, lastName, nick_name, image],
+  };
+  const user = await pool.query(SQLquery);
+  return user.rows[0];
+};
+
+const byEmail = async (email) => {
+  const SQLquery = {
+    text: "SELECT * FROM users WHERE email = $1",
+    values: [email],
+  };
+  const user = await pool.query(SQLquery);
+
+  return user.rows[0];
+};
+
+const userById = async (user_id) => {
+  const SQLquery = {
+    text: "SELECT * FROM users WHERE user_id = $1",
+    values: [Number(user_id)],
+  };
+  const user = await pool.query(SQLquery);
+
+  return user.rows[0];
+};
+
+const userDelete = async (user_id) => {
+  const SQLquery = {
+    text: "DELETE FROM users WHERE user_id = $1",
+    values: [user_id],
+  };
+  const user = await pool.query(SQLquery);
+  return user.rows[0];
+};
+
+const userUpdate = async (user_id, newData) => {
+  const { email, name, last_name, nick_name, image } = newData;
+
+  const oldUserData = await userById(user_id);
+  const newEmail = email ? email : oldUserData.email;
+  const newName = name ? name : oldUserData.name;
+  const newLast_name = last_name ? last_name : oldUserData.last_name;
+  const newNick_name = nick_name ? nick_name : oldUserData.nick_name;
+  const newImage = image ? image : oldUserData.image;
+
+  const SQLquery = {
+    text: "UPDATE users SET email = $1, name = $2, last_name = $3, nick_name = $4, image = $5 WHERE user_id = $6 RETURNING *",
+    values: [newEmail, newName, newLast_name, newNick_name, newImage, user_id],
+  };
+  const user = await pool.query(SQLquery);
+  return user.rows[0];
+};
+
+export { createUser, byEmail, userById, userDelete, userUpdate };
