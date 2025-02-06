@@ -11,11 +11,5 @@ const pool = new pg.Pool({
   allowExitOnIdle: true,
 });
 
-try {
-  await pool.query("SELECT NOW()");
-  console.log("Base de datos conectada");
-} catch (error) {
-  console.log(error);
-}
 
 export { pool };

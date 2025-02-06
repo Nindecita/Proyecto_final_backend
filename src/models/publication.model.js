@@ -65,7 +65,7 @@ const allFind = async () => {
   };
   const publication = await pool.query(SQLquery);
 
-  return publication.rows[0];
+  return publication.rows;
 };
 
 const publicationDelete = async (publication_id) => {
