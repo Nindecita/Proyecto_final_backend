@@ -15,7 +15,7 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Password incorrecto" });
     }
     const token = jwt.sign({ email }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: "6h",
     });
 
     res.status(200).json({ token });
