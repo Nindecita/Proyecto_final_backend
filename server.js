@@ -9,7 +9,7 @@ import orderRoutes from "./config/routes/orders.routes.js"
 import commentRoutes from "./config/routes/comments.routes.js"
 import orderDetailRoutes from "./config/routes/order_details.routes.js"
 import loginAuthRoutes from "./config/routes/loginAuth.routes.js"
-
+import categoriesRoutes from "./config/routes/categories.routes.js" 
 
 
 
@@ -29,6 +29,7 @@ app.use("/api", orderRoutes)
 app.use("/api", commentRoutes)
 app.use("/api", orderDetailRoutes)
 app.use("/api", loginAuthRoutes)
+app.use("/api", categoriesRoutes)
 
 //Inicializamos el servidor en el puerto 3000
 app.listen(port, console.log(`¡Servidor encendido en el puerto! ${port}`));

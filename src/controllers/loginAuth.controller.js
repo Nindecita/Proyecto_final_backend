@@ -18,7 +18,8 @@ const loginUser = async (req, res) => {
       expiresIn: "6h",
     });
 
-    res.status(200).json({ token });
+    const { password:__dirname, ...newUser } = user
+    res.status(200).json({ token, user: newUser});
   } catch (error) {
     res.status(500).json(error);
   }

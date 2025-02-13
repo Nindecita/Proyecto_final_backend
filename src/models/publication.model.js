@@ -9,6 +9,7 @@ const createPublication = async ({
   state,
   title,
 }) => {
+  const newState = state === "Nuevo" ? true : false
   const SQLquery = {
     text: "INSERT INTO publications (user_id, price, category_id, description, image, state, title) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
     values: [
@@ -17,7 +18,7 @@ const createPublication = async ({
       Number(category_id),
       description,
       image,
-      state,
+      newState,
       title,
     ],
   };
@@ -56,7 +57,7 @@ const userById = async (user_id) => {
   };
   const publication = await pool.query(SQLquery);
 
-  return publication.rows[0];
+  return publication.rows;
 };
 
 const allFind = async () => {

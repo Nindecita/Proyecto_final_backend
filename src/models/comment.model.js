@@ -68,4 +68,13 @@ const commentUpdate = async (comment_id, newData) => {
   }
 };
 
-export { createComment, commentById, commentDelete, commentUpdate };
+const getCommentsByPublication = async (publication_id) => {
+  const SQLquery = {
+    text: "SELECT * FROM comments WHERE publication_id = $1",
+    values: [Number(publication_id)],
+  };
+  const comment = await pool.query(SQLquery);
+  return comment.rows;
+}
+
+export { createComment, commentById, commentDelete, commentUpdate, getCommentsByPublication };

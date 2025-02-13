@@ -9,6 +9,8 @@ import {
 
 const newPublication = async (req, res) => {
   try {
+    console.log("para,s", req.body);
+    
     const publication = await createPublication(req.body);
     return res.status(200).json(publication);
   } catch (error) {
@@ -34,9 +36,9 @@ const findUserById = async (req, res) => {
   try {
     const { user_id } = req.params;
     const publication = await userById(user_id);
-    const data = publication
+    const data = publication.length > 0
       ? publication
-      : { message: "Aun no tienes publicaciones creadas en la app" };
+      : []
     return res.status(200).json(data);
   } catch (error) {
     console.log("error", error);
