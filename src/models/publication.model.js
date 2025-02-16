@@ -81,13 +81,16 @@ const publicationDelete = async (publication_id) => {
 const publicationUpdate = async (publication_id, newData) => {
   const { price, category_id, description, image, state, title } = newData;
 
+  const setState = state === "Nuevo" ? true : false
   const oldUserData = await publicationById(publication_id);
   const newPrice = price ? price : oldUserData.price;
   const newCategory_id = category_id ? category_id : oldUserData.category_id;
   const newDescription = description ? description : oldUserData.description;
   const newImage = image ? image : oldUserData.image;
-  const newState = state ? state : oldUserData.state;
+  const newState = state ? setState : oldUserData.state;
   const newTitle = title ? title : oldUserData.title;
+  
+
 
   const SQLquery = {
     text: "UPDATE publications SET price = $1, category_id = $2, description = $3, image = $4, state = $5, title = $6  WHERE publication_id = $7 RETURNING *",

@@ -8,7 +8,8 @@
     "test": "jest --coverage --forceExit",
     "test:watch": "jest --watch",
     "dev": "node --watch server.js",
-    "seed": "node ./config/bd/seed.js"
+    "seed": "node ./config/bd/seed.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
