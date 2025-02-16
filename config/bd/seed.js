@@ -35,7 +35,7 @@ async function seed() {
 
     const category1 = await pool.query(
       `INSERT INTO categories (name_category)
-       VALUES ('Tecnología')
+       VALUES ('Calzado')
        ON CONFLICT (name_category) DO NOTHING
        RETURNING category_id;`
     );
@@ -46,9 +46,31 @@ async function seed() {
        ON CONFLICT (name_category) DO NOTHING
        RETURNING category_id;`
     );
+    const category3 = await pool.query(
+      `INSERT INTO categories (name_category)
+       VALUES ('Juguetes')
+       ON CONFLICT (name_category) DO NOTHING
+       RETURNING category_id;`
+    );
+    const category4 = await pool.query(
+      `INSERT INTO categories (name_category)
+       VALUES ('Accesorios')
+       ON CONFLICT (name_category) DO NOTHING
+       RETURNING category_id;`
+    );
+    const category5 = await pool.query(
+      `INSERT INTO categories (name_category)
+       VALUES ('Muebles')
+       ON CONFLICT (name_category) DO NOTHING
+       RETURNING category_id;`
+    );
+
 
     const category1Id = category1.rows[0].category_id;
     const category2Id = category2.rows[0].category_id;
+    const category3Id = category2.rows[0].category_id;
+    const category4Id = category2.rows[0].category_id;
+    const category5Id = category2.rows[0].category_id;
 
     const publication1 = await pool.query(
       `INSERT INTO publications (user_id, price, category_id, description, image, state, title)
