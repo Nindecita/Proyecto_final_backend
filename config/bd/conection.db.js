@@ -9,6 +9,9 @@ const pool = new pg.Pool({
   password: process.env.PASSWORD_DB,
   database: process.env.NAME_DATABASE,
   allowExitOnIdle: true,
+  //connectionString: process.env.DATABASE_URL,
+  //ssl: { rejectUnauthorized: false }, // Necesario en Render
+  //allowExitOnIdle: true,
 });
 
 

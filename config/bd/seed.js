@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import { pool } from "./conection.db.js";
+import { faker } from '@faker-js/faker';
 
 async function seed() {
   try {
@@ -74,17 +75,19 @@ async function seed() {
 
     const publication1 = await pool.query(
       `INSERT INTO publications (user_id, price, category_id, description, image, state, title)
-       VALUES ($1, 100, $2, 'Descripción de la publicación 1', 'image1.jpg', true, 'Publicación 1')
+       VALUES ($1, 100, $2, $3, $4, $5, $6)
        RETURNING publication_id;`,
-      [user1Id, category1Id]
+      [user1Id, category1Id, 'Descripción de la publicación 1', faker.image.url(), true, 'Publicación 1']
     );
+    
 
     const publication2 = await pool.query(
       `INSERT INTO publications (user_id, price, category_id, description, image, state, title)
-       VALUES ($1, 200, $2, 'Descripción de la publicación 2', 'image2.jpg', true, 'Publicación 2')
+       VALUES ($1, 100, $2, $3, $4, $5, $6)
        RETURNING publication_id;`,
-      [user2Id, category2Id]
+      [user2Id, category2Id, 'Descripción de la publicación 1', faker.image.url(), true, 'Publicación 1']
     );
+    
 
     const publication1Id = publication1.rows[0].publication_id;
     const publication2Id = publication2.rows[0].publication_id;

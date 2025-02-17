@@ -15,11 +15,11 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Password incorrecto" });
     }
     const token = jwt.sign({ email }, process.env.JWT_SECRET, {
-      expiresIn: "6h",
+      expiresIn: "1h",
     });
 
-    const { password:__dirname, ...newUser } = user
-    res.status(200).json({ token, user: newUser});
+    const { password: __dirname, ...newUser } = user;
+    res.status(200).json({ token, user: newUser });
   } catch (error) {
     res.status(500).json(error);
   }

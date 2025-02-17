@@ -70,11 +70,24 @@ const commentUpdate = async (comment_id, newData) => {
 
 const getCommentsByPublication = async (publication_id) => {
   const SQLquery = {
-    text: "SELECT * FROM comments WHERE publication_id = $1",
+    text: `
+      SELECT comments.comment_id, comments.comment, comments.created_at, 
+      users.user_id, users.name
+      FROM comments
+      JOIN users ON comments.user_id = users.user_id
+      WHERE comments.publication_id = $1
+    `,
     values: [Number(publication_id)],
   };
-  const comment = await pool.query(SQLquery);
-  return comment.rows;
-}
+
+  try {
+    const result = await pool.query(SQLquery);
+    return result.rows;
+  } catch (error) {
+    console.error("Error al obtener los comentarios:", error);
+    throw new Error("Error al obtener los comentarios");
+  }
+};
+
 
 export { createComment, commentById, commentDelete, commentUpdate, getCommentsByPublication };
