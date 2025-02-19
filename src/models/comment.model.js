@@ -89,5 +89,10 @@ const getCommentsByPublication = async (publication_id) => {
   }
 };
 
-
-export { createComment, commentById, commentDelete, commentUpdate, getCommentsByPublication };
+export {
+  createComment,
+  commentById,
+  commentDelete,
+  commentUpdate,
+  getCommentsByPublication,
+};
