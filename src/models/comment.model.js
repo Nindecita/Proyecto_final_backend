@@ -26,10 +26,10 @@ const commentById = async (comment_id) => {
 const commentDelete = async (comment_id) => {
   const SQLquery = {
     text: "DELETE FROM comments WHERE comment_id = $1",
-    values: [comment_id],
+    values: [Number(comment_id)],
   };
-  const comment = await pool.query(SQLquery);
-  return comment.rows[0];
+  await pool.query(SQLquery);
+  return true;
 };
 
 const commentUpdate = async (comment_id, newData) => {

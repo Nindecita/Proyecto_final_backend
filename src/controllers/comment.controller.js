@@ -32,8 +32,8 @@ const findCommentById = async (req, res) => {
 const deleteComment = async (req, res) => {
   try {
     const { comment_id } = req.params;
-    const comment = await commentDelete(comment_id);
-    return res.status(204).json(comment);
+    await commentDelete(comment_id);
+    return res.status(204).json({message: 'comentario eliminado con exito'});
   } catch (error) {
     res.status(500).json({ error: error });
   }
