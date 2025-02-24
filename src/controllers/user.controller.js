@@ -1,4 +1,10 @@
-import { createUser, userById, userDelete, userUpdate } from "../models/user.model.js";
+import {
+  createUser,
+  getPurchases,
+  userById,
+  userDelete,
+  userUpdate,
+} from "../models/user.model.js";
 
 const newUser = async (req, res) => {
   try {
@@ -33,15 +39,26 @@ const deleteUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-    try {
-      const { user_id } = req.params;
-      const newData = req.body; 
-      const user = await userUpdate(user_id, newData);
-      return res.status(200).json(user);
-    } catch (error) {
-      console.error(error); 
-      res.status(500).json({ error: error.message });
-    }
-  };
-  
-export { newUser, findUserById, deleteUser, updateUser };
+  try {
+    const { user_id } = req.params;
+    const newData = req.body;
+    const user = await userUpdate(user_id, newData);
+    return res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const myPurchases = async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const purchases = await getPurchases(user_id);
+    return res.status(200).json(purchases);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+}
+
+export { newUser, findUserById, deleteUser, updateUser, myPurchases };
