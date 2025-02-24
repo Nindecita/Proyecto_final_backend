@@ -42,7 +42,7 @@ const byCategory_id = async (category_id) => {
 
 const publicationById = async (publication_id) => {
   const SQLquery = {
-    text: "SELECT u.name AS user_name, pub.publication_id, pub.user_id, pub.price, pub.category_id, pub.description, pub.image, pub.state, pub.title  FROM publications AS pub INNER JOIN users AS u ON pub.user_id = u.user_id WHERE pub.publication_id = $1",
+    text: "SELECT u.name AS user_name, pub.publication_id, pub.user_id, pub.price, pub.category_id, pub.description, pub.image, pub.state, pub.title, pub.sold  FROM publications AS pub INNER JOIN users AS u ON pub.user_id = u.user_id WHERE pub.publication_id = $1",
     values: [Number(publication_id)],
   };
   const publication = await pool.query(SQLquery);
@@ -106,6 +106,16 @@ const publicationUpdate = async (publication_id, newData) => {
   return publication.rows[0];
 };
 
+const changeStatusPublication = async (publicationId, status) => {
+  const SQLquery = {
+    text: "UPDATE publications SET sold = $1 WHERE publication_id = $2",
+    values: [status, publicationId]
+    
+  } 
+  const publication = await pool.query(SQLquery);
+  return publication.rows[0];
+}
+
 export {
   createPublication,
   byCategory_id,
@@ -114,4 +124,5 @@ export {
   publicationDelete,
   publicationUpdate,
   userById,
+  changeStatusPublication
 };

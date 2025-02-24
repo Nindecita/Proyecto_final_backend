@@ -1,5 +1,6 @@
 import { pool } from "../../config/bd/conection.db.js";
 import bcrypt from "bcryptjs";
+import { changeStatusPublication } from "./publication.model.js";
 
 const createOrderDetail = async ({
   order_id,
@@ -13,6 +14,7 @@ const createOrderDetail = async ({
   };
   if (order_id && publication_id) {
     const orderDetail = await pool.query(SQLquery);
+    await changeStatusPublication(publication_id, true)
     return orderDetail.rows[0];
   } else {
     throw new Error("el order id o publication id deben estar presentes");
