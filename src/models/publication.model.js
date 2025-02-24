@@ -9,7 +9,7 @@ const createPublication = async ({
   state,
   title,
 }) => {
-  const newState = state === "Nuevo" ? true : false
+  const newState = state === "Nuevo" ? true : false;
   const SQLquery = {
     text: "INSERT INTO publications (user_id, price, category_id, description, image, state, title) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
     values: [
@@ -42,7 +42,7 @@ const byCategory_id = async (category_id) => {
 
 const publicationById = async (publication_id) => {
   const SQLquery = {
-    text: "SELECT * FROM publications WHERE publication_id = $1",
+    text: "SELECT u.name AS user_name, pub.publication_id, pub.user_id, pub.price, pub.category_id, pub.description, pub.image, pub.state, pub.title  FROM publications AS pub INNER JOIN users AS u ON pub.user_id = u.user_id WHERE pub.publication_id = $1",
     values: [Number(publication_id)],
   };
   const publication = await pool.query(SQLquery);
@@ -81,7 +81,7 @@ const publicationDelete = async (publication_id) => {
 const publicationUpdate = async (publication_id, newData) => {
   const { price, category_id, description, image, state, title } = newData;
 
-  const setState = state === "Nuevo" ? true : false
+  const setState = state === "Nuevo" ? true : false;
   const oldUserData = await publicationById(publication_id);
   const newPrice = price ? price : oldUserData.price;
   const newCategory_id = category_id ? category_id : oldUserData.category_id;
@@ -89,8 +89,6 @@ const publicationUpdate = async (publication_id, newData) => {
   const newImage = image ? image : oldUserData.image;
   const newState = state ? setState : oldUserData.state;
   const newTitle = title ? title : oldUserData.title;
-  
-
 
   const SQLquery = {
     text: "UPDATE publications SET price = $1, category_id = $2, description = $3, image = $4, state = $5, title = $6  WHERE publication_id = $7 RETURNING *",
