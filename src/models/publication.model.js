@@ -62,7 +62,7 @@ const userById = async (user_id) => {
 
 const allFind = async () => {
   const SQLquery = {
-    text: "SELECT * FROM publications",
+    text: "SELECT * FROM publications WHERE sold = false ORDER BY publication_id DESC",
   };
   const publication = await pool.query(SQLquery);
 
