@@ -93,4 +93,40 @@ const getPurchases = async (userId) => {
   return result.rows;
 };
 
-export { createUser, byEmail, userById, userDelete, userUpdate, getPurchases };
+const getSales = async (userId) => {
+  const SQLquery = {
+    text: `
+      SELECT
+        o.order_id AS "order_id",
+        p.title AS "producto",
+        p.description AS "descripción", 
+        p.price,
+        CONCAT(u.name, ' ', u.last_name) AS "comprador",
+        u.email AS "email"
+      FROM publications p
+      JOIN order_details od
+        ON od.publication_id = p.publication_id
+      JOIN orders o
+        ON o.order_id = od.order_id
+      JOIN users u
+        ON o.user_id = u.user_id
+      WHERE p.user_id = $1
+      AND p.sold = true
+      ORDER BY o.order_id;
+    `,
+    values: [userId],
+  };
+
+  const result = await pool.query(SQLquery);
+  return result.rows;
+};
+
+export {
+  createUser,
+  byEmail,
+  userById,
+  userDelete,
+  userUpdate,
+  getPurchases,
+  getSales,
+};

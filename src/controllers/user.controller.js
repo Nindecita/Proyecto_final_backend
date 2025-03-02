@@ -1,6 +1,7 @@
 import {
   createUser,
   getPurchases,
+  getSales,
   userById,
   userDelete,
   userUpdate,
@@ -59,6 +60,17 @@ const myPurchases = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: error.message });
   }
-}
+};
 
-export { newUser, findUserById, deleteUser, updateUser, myPurchases };
+const mySales = async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const sales = await getSales(user_id);
+    return res.status(200).json(sales);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export { newUser, findUserById, deleteUser, updateUser, myPurchases, mySales };
